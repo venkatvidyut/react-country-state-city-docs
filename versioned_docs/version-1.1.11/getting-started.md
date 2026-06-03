@@ -53,13 +53,13 @@ import "react-country-state-city/dist/react-country-state-city.css";
 
 ## Data
 
-By default, the control loads GitHub-hosted data files. Alternatively, you can [download the data](https://github.com/venkatmcajj/react-country-state-city/tree/master/data) JSON files and host them yourself. Simply supply the `src` property to each control to specify where to download from.
+By default, the control loads GitHub-hosted data files. Alternatively, you can [download the data](https://github.com/venkatvidyut/react-country-state-city/tree/master/data) JSON files and host them yourself. Simply supply the `src` property to each control to specify where to download from.
 
 ---
 
 ## Demo Project
 
-A demo is worth a thousand words! [Check out the demo](https://venkatmcajj.github.io/react-country-state-city/example).
+A demo is worth a thousand words! [Check out the demo](https://venkatvidyut.github.io/react-country-state-city/example).
 
 ---
 
@@ -67,7 +67,7 @@ A demo is worth a thousand words! [Check out the demo](https://venkatmcajj.githu
 
 Show your ❤️ and support by giving a ⭐. Any suggestions are welcome!
 
-📧 Email: [venkatmcajj@gmail.com](mailto:venkatmcajj@gmail.com)
+📧 Email: [venkatvidyut@gmail.com](mailto:venkatvidyut@gmail.com)
 
 ---
 

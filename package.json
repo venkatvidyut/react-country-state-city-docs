@@ -50,12 +50,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/venkatmcajj/react-country-state-city-docs.git"
+    "url": "git+https://github.com/venkatvidyut/react-country-state-city-docs.git"
   },
   "author": "Venkatesh",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/venkatmcajj/react-country-state-city-docs/issues"
+    "url": "https://github.com/venkatvidyut/react-country-state-city-docs/issues"
   },
-  "homepage": "https://github.com/venkatmcajj/react-country-state-city-docs#readme"
+  "homepage": "https://github.com/venkatvidyut/react-country-state-city-docs#readme"
 }

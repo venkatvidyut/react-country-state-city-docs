@@ -19,14 +19,14 @@ const config = {
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://venkatmcajj.github.io/',
+  url: 'https://venkatvidyut.github.io/',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/react-country-state-city-docs/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'venkatmcajj', // Usually your GitHub org/user name.
+  organizationName: 'venkatvidyut', // Usually your GitHub org/user name.
   projectName: 'react-country-state-city-docs', // Usually your repo name.
 
   onBrokenLinks: 'throw',
@@ -92,12 +92,12 @@ const config = {
             position: 'right',
           },
           {
-            href: 'https://github.com/venkatmcajj/react-country-state-city',
+            href: 'https://github.com/venkatvidyut/react-country-state-city',
             label: 'GitHub',
             position: 'right',
           },
           {
-            href: 'https://github.com/venkatmcajj',
+            href: 'https://github.com/venkatvidyut',
             className: 'header-user-icon',
             'aria-label': 'User Profile',
             position: 'right',
