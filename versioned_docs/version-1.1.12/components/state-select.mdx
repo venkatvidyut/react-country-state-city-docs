@@ -1,0 +1,57 @@
+---
+title: State Select
+sidebar_label: State Select
+---
+
+import StateComponent from "./state-component";
+
+# State Select
+
+:::info
+The `StateSelect` component allows users to select a state based on the selected country. It supports customization through various props like `defaultValue`, `onChange`, and `placeHolder`.
+:::
+
+## Usage
+
+```tsx
+import React, { useState } from "react";
+import { CountrySelect, StateSelect } from "react-country-state-city";
+import "react-country-state-city/dist/react-country-state-city.css";
+
+export default function App() {
+  const [country, setCountry] = useState(null);
+  const [currentState, setCurrentState] = useState(null);
+
+  return (
+    <div>
+      <h6>State</h6>
+      <StateSelect
+        countryid={country?.id}
+        containerClassName="form-group"
+        inputClassName=""
+        onChange={(_state) => setCurrentState(_state)}
+        onTextChange={(_txt) => console.log(_txt)}
+        defaultValue={currentState}
+        placeHolder="Select State"
+      />
+    </div>
+  );
+}
+```
+
+## Live Example
+
+<StateComponent />
+
+## Props
+
+| Name              | Type                        | Default | Required | Description |
+|------------------|--------------------------|---------|----------|-------------|
+| **countryid**      | `number`                  | Empty   | ✅        | The id of the selected country object |
+| **src**            | `string`                  | Empty   | ❌        | URL where data files are hosted (e.g., `https://venkatvidyut.github.io/react-country-state-city/`) |
+| **defaultValue**   | `State` \| `string(name)` \| `number(id)` | `null`   | ❌        | The current value (a `state object` or `state name` or `state id`) |
+| **containerClassName** | `string` | Empty | ❌ | Styles for the container |
+| **inputClassName** | `string` | Empty | ❌ | Styles for the input box |
+| **onChange**       | `function` | Empty | ❌ | Callback with the selected state object as an argument |
+| **onTextChange**   | `function` | Empty | ❌ | Callback fired when the input text changes |
+| **placeHolder**    | `string` | Empty | ❌ | Placeholder text displayed in an empty input |

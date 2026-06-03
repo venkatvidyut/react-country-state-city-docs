@@ -1,0 +1,71 @@
+---
+title: GetCountries
+sidebar_label: GetCountries
+---
+#
+## GetCountries()
+
+import Countrysample from './countrysample';
+
+:::info
+The `GetCountries` function in react-country-state-city fetches a list of [**country**](/latest/types/country) objects. The async function returns an array of [**country**](/latest/types/country) objects, each containing details such as name, code, and region.
+:::
+
+### Usage
+
+```tsx
+import React, { useEffect } from "react";
+import { GetCountries } from "react-country-state-city";
+export default function App() {
+  useEffect(() => {
+    GetCountries().then((_countries) => console.log(_countries));
+  }, []);
+  return <div>...</div>;
+}
+```
+
+### Parameters
+
+| Name    | Type     | Default | Required | Description                                                                                       |
+| ------- | -------- | ------- | -------- | ------------------------------------------------------------------------------------------------- |
+| **src** | `string` | Empty   | ❌       | URL where data files are hosted (e.g., `https://venkatvidyut.github.io/react-country-state-city/`) |
+
+### Results
+
+Returns a [**country**](/latest/types/country) object lists.
+
+### Sample
+<details>
+  <summary>Show Code</summary>
+```tsx
+  import React, { useState, useEffect } from "react";
+  import { GetCountries } from "react-country-state-city";
+  export default function App() {
+      const [countriesList, setCountriesList] = useState([]);
+      const [country, setCountry] = useState(null);
+      useEffect(() => {
+        GetCountries().then((result) => {
+          setCountriesList(result);
+        });
+      }, []);
+      return (
+          <div>
+              <h3>
+                  Country
+              </h3>
+              <select
+                  onChange={(e) => setCountry(e.target.value)}
+                  value={country}>
+                  <option value={""}>-- Select Country --</option>
+                  {countriesList.map((_country) => (
+                      <option key={country.id} value={country.id}>
+                          {country.name}
+                      </option>
+                  ))}
+              </select>
+          </div>
+      );
+  }
+```
+</details>
+<Countrysample />

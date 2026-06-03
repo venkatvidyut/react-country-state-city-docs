@@ -1,0 +1,75 @@
+---
+title: Country Select
+sidebar_label: Country Select
+---
+
+:::info
+**CountrySelect** is a React component that provides an easy-to-use dropdown for selecting countries. It supports customizable styling, region-based filtering, and event handlers for value changes, making it ideal for forms and location-based inputs.
+:::
+
+---
+
+import React from "react";
+import { CountrySelect } from "react-country-state-city";
+import "react-country-state-city/dist/react-country-state-city.css";
+
+## Usage
+
+```tsx
+import React, { useState } from "react";
+import { CountrySelect } from "react-country-state-city";
+import "react-country-state-city/dist/react-country-state-city.css";
+
+export default function App() {
+  const [country, setCountry] = useState(null);
+
+  return (
+    <div>
+      <h6>Country</h6>
+      <CountrySelect
+        containerClassName="form-group"
+        inputClassName=""
+        onChange={(_country) => setCountry(_country)}
+        onTextChange={(_txt) => console.log(_txt)}
+        placeHolder="Select Country"
+      />
+    </div>
+  );
+}
+```
+
+### Live Example
+
+<div
+  style={{
+    border: "1px solid gray",
+    borderRadius: "8px",
+    padding: "16px",
+    marginTop: "16px",
+  }}
+>
+  <div style={{ maxWidth: "600px", margin: "auto" }}>
+    <h3>Country</h3>
+    <CountrySelect
+      containerClassName="form-group"
+      inputClassName=""
+      onChange={(_country) => console.log(_country)}
+      onTextChange={(_txt) => console.log(_txt)}
+      placeHolder="Select Country"
+    />
+  </div>
+</div>
+
+## Props
+
+| Prop Name              | Type                                      | Default | Required | Description                                                                                                                                                           |
+| ---------------------- | ----------------------------------------- | ------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **src**                | `string`                                  | Empty   | ❌       | The relative or absolute URL where the data files are hosted. Default is to serve from a hosted CDN, e.g., `https://venkatvidyut.github.io/react-country-state-city/`. |
+| **region**             | `number`                                  | Empty   | ❌       | Filters and displays only the countries that belong to a specific region.                                                                                             |
+| **defaultValue**       | `Country \| string (name) \| number (id)` | `null`  | ❌       | The current value: a `country object` or `country name` or `country id`.                                                                                                                                  |
+| **containerClassName** | `string`                                  | Empty   | ❌       | Styles for a container.                                                                                                                                               |
+| **inputClassName**     | `string`                                  | Empty   | ❌       | Styles for an input box.                                                                                                                                              |
+| **onChange**           | `function`                                | Empty   | ❌       | The current value: a country object. The argument is the country object.                                                                                              |
+| **onTextChange**       | `function`                                | Empty   | ❌       | A callback fired when the input text changes.                                                                                                                         |
+| **placeHolder**        | `string`                                  | Empty   | ❌       | Placeholder text displayed in an empty input.                                                                                                                         |
+| **showFlag**           | `boolean`                                 | `true`  | ❌       | Flags are displayed when `true` and hidden when `false`.                                                                                                              |

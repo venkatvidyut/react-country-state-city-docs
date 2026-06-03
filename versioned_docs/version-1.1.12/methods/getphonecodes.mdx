@@ -1,0 +1,91 @@
+---
+title: GetPhonecodes
+sidebar_label: GetPhonecodes
+---
+#
+## GetPhonecodes()
+
+import Phonecodesample from './phonecodesample';
+
+:::info
+The `GetPhonecodes` function in react-country-state-city package is used to retrieve a list of [**phone codes**](/latest/types/phonecode) for countries. This async function typically returns an array of objects containing country names and their corresponding international dialing codes ([**phone codes**](/latest/types/phonecode)). It helps to easily access and display phone codes for different countries in applications.
+:::
+
+### Usage
+
+```tsx
+import React, { useEffect } from "react";
+import { GetPhonecodes } from "react-country-state-city";
+export default function App() {
+  useEffect(() => {
+    GetPhonecodes().then((_codes) => console.log(_codes));
+  }, []);
+  return <div>...</div>;
+}
+```
+
+### Parameters
+
+| Name    | Type     | Default | Required | Description                                                                                       |
+| ------- | -------- | ------- | -------- | ------------------------------------------------------------------------------------------------- |
+| **src** | `string` | Empty   | ❌       | URL where data files are hosted (e.g., `https://venkatvidyut.github.io/react-country-state-city/`) |
+
+### Results
+
+Returns a [**phone codes**](/latest/types/phonecode) object lists.
+
+### Sample
+<details>
+  <summary>Show Code</summary>
+```tsx
+import React, { useState, useEffect } from "react";
+import { GetPhonecodes } from "react-country-state-city";
+
+function App() {
+  const [phonecode, setPhonecode] = useState(null);
+  const [phoncodeList, setPhonecodeList] = useState([]);
+  useEffect(() => {
+    GetPhonecodes().then((result) => {
+      setPhonecodeList(result);
+    });
+  }, []);
+  return (
+    <div
+      style={{
+        border: "1px solid gray",
+        borderRadius: "8px",
+        padding: "16px",
+        marginTop: "16px",
+      }}
+    >
+      <div style={{ maxWidth: "600px", margin: "auto" }}>
+        <h6 style={{ marginTop: 10, marginBottom: 5 }}>Mobile</h6>
+        <div style={{ display: "flex" }}>
+          <select
+            onChange={(e) => setPhonecode(e.target.value)}
+            value={phonecode}
+            style={{ minHeight: 40 }}
+          >
+            <option value={""}>-- Select --</option>
+            {phoncodeList.map((_code) => (
+              <option key={_code.id} value={_code.phone_code}>
+                +{_code.phone_code}
+              </option>
+            ))}
+          </select>
+          <input
+            type="tel"
+            style={{ width: "100%", minHeight: 40 }}
+            placeholder="Mobile no"
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default App;
+
+```
+</details>
+<Phonecodesample />

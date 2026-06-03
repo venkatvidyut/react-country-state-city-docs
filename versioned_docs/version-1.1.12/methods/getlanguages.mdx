@@ -1,0 +1,84 @@
+---
+title: GetLanguages
+sidebar_label: GetLanguages
+---
+#
+## GetLanguages()
+
+import Languagesample from './languagesample';
+
+:::info
+The `GetLanguages` function in react-country-state-city fetches a list of [**language**](/latest/types/language) objects. The async function returns an array of [**language**](/latest/types/language) objects, each containing details such as name, code, and native.
+:::
+
+### Usage
+
+```tsx
+import React, { useEffect } from "react";
+import { GetLanguages } from "react-country-state-city";
+export default function App() {
+  useEffect(() => {
+    GetLanguages().then((_languages) => console.log(_languages));
+  }, []);
+  return <div>...</div>;
+}
+```
+
+### Parameters
+
+| Name    | Type     | Default | Required | Description                                                                                       |
+| ------- | -------- | ------- | -------- | ------------------------------------------------------------------------------------------------- |
+| **src** | `string` | Empty   | ❌       | URL where data files are hosted (e.g., `https://venkatvidyut.github.io/react-country-state-city/`) |
+
+### Results
+
+Returns a [**language**](/latest/types/language) object lists.
+
+### Sample
+<details>
+  <summary>Show Code</summary>
+```tsx
+import React, { useState, useEffect } from "react";
+import { GetLanguages } from "react-country-state-city";
+
+function App() {
+  const [language, setLanguage] = useState(null);
+  const [languageList, setLanguageList] = useState([]);
+  useEffect(() => {
+    GetLanguages().then((result) => {
+      setLanguageList(result);
+    });
+  }, []);
+  return (
+    <div
+      style={{
+        border: "1px solid gray",
+        borderRadius: "8px",
+        padding: "16px",
+        marginTop: "16px",
+      }}
+    >
+      <div style={{ maxWidth: "600px", margin: "auto" }}>
+        <h6 style={{ marginTop: 10, marginBottom: 5 }}>Language</h6>
+        <select
+          onChange={(e) => setLanguage(e.target.value)}
+          value={language}
+          style={{ width: "100%", minHeight: 40 }}
+        >
+          <option value={""}>-- Select Language --</option>
+          {languageList.map((_lan) => (
+            <option key={_lan.name} value={_lan.name}>
+              {_lan.name}
+            </option>
+          ))}
+        </select>
+      </div>
+    </div>
+  );
+}
+
+export default App;
+
+```
+</details>
+<Languagesample />

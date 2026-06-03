@@ -1,0 +1,53 @@
+---
+title: Language Select
+---
+
+import LanguageComponent from './language-component';
+
+
+:::info
+A component that allows users to select a language from a list. Supports displaying languages in their native form and provides various customization options.
+:::
+
+## Usage
+
+```tsx
+import React, { useState } from "react";
+import { LanguageSelect } from "react-country-state-city";
+import "react-country-state-city/dist/react-country-state-city.css";
+
+export default function App() {
+  const [language, setLanguage] = useState(null);
+
+  return (
+    <div>
+      <h6>Language</h6>
+      <LanguageSelect
+        containerClassName="form-group"
+        inputClassName=""
+        onChange={(_lan) => setLanguage(_lan)}
+        onTextChange={(_txt) => console.log(_txt)}
+        defaultValue={language}
+        placeHolder="Select Language"
+      />
+    </div>
+  );
+}
+```
+## Live Example
+
+<LanguageComponent />
+
+## Props
+
+| **Prop**             | **Type**                    | **Default** | **Required** | **Description** |
+|----------------------|----------------------------|-------------|--------------|----------------|
+| **src**             | `string`                    | `""`        | ❌           | The relative or absolute URL where the data files are hosted. Default is a hosted CDN. |
+| **displayNative**    | `boolean`                   | `false`     | ❌           | If `true`, displays languages in their native form; otherwise, displays them in English. |
+| **defaultValue**     | `Language` \| `string(name)`   | `null`      | ❌           | The current selected `language object` or `language name`. |
+| **containerClassName** | `string`                  | `""`        | ❌           | CSS class for styling the container. |
+| **inputClassName**   | `string`                    | `""`        | ❌           | CSS class for styling the input box. |
+| **onChange**        | `(language: Language) => void` | `undefined` | ❌           | Callback function triggered when the selected language changes. |
+| **onTextChange**    | `(text: string) => void`    | `undefined` | ❌           | Callback function triggered when the input text changes. |
+| **placeHolder**     | `string`                    | `""`        | ❌           | Placeholder text displayed in the input when empty. |
+

@@ -1,0 +1,127 @@
+---
+title: GetPhonecodesByRegion
+sidebar_label: GetPhonecodesByRegion
+---
+
+#
+
+## GetPhonecodesByRegion (region:String)
+
+:::info
+The `GetPhonecodesByRegion` function in react-country-state-city package is used to retrieve a list of [**phone codes**](/latest/types/phonecode) for countries within the given region. This async function typically returns an array of objects containing country names and their corresponding international dialing codes ([**phone codes**](/latest/types/phonecode)). It helps to easily access and display phone codes for different countries in applications.
+:::
+
+import PhonecodesByRegionSample from "./phonecodesbyregionsample";
+
+### Usage
+
+```tsx
+import React, { useState, useEffect } from "react";
+import { GetRegions, GetPhonecodesByRegion } from "react-country-state-city";
+
+export default function App() {
+    const [phonecode, setPhonecode] = useState(null);
+    const [phoncodeList, setPhonecodeList] = useState([]);
+    const [region, setRegion] = useState(null);
+    const [regionList, setRegionList] = useState([]);
+    useEffect(() => {
+      GetRegions().then((result) => {
+        setRegionList(result);
+      });
+    }, []);
+    useEffect(() => {
+      if (region)
+        GetPhonecodesByRegion(region).then((result) => {
+          setPhonecodeList(result);
+        });
+    }, [region]);
+
+    return (
+        <div>
+        ...
+        </div>
+    );
+}
+
+```
+
+### Parameters
+
+| Name          | Type     | Default | Required | Description                                                                                       |
+| ------------- | -------- | ------- | -------- | ------------------------------------------------------------------------------------------------- |
+| **region** | `string` | Empty   | ✅       | The **name** of the selected region.                                                             |
+| **src**       | `string` | Empty   | ❌       | URL where data files are hosted (e.g., `https://venkatvidyut.github.io/react-country-state-city/`) |
+
+### Results
+
+Returns a [**phone codes**](/latest/types/phonecode) object lists.
+
+### Sample
+
+<details>
+  <summary>Show Code</summary>
+```tsx
+import React, { useState, useEffect } from "react";
+import { GetRegions, GetPhonecodesByRegion } from "react-country-state-city";
+function App() {
+  const [phonecode, setPhonecode] = useState(null);
+  const [phoncodeList, setPhonecodeList] = useState([]);
+  const [region, setRegion] = useState(null);
+  const [regionList, setRegionList] = useState([]);
+  useEffect(() => {
+    GetRegions().then((result) => {
+      setRegionList(result);
+    });
+  }, []);
+  useEffect(() => {
+    if (region)
+      GetPhonecodesByRegion(region).then((result) => {
+        setPhonecodeList(result);
+      });
+  }, [region]);
+  return (
+    <div
+      style={{
+        border: "1px solid gray",
+        borderRadius: "8px",
+        padding: "16px",
+        marginTop: "16px",
+      }}
+    >
+      <div style={{ maxWidth: "600px", margin: "auto" }}>
+        <h3 style={{ marginTop: 10, marginBottom: 5 }}>Region</h3>
+        <select
+          onChange={(e) => setRegion(e.target.value)}
+          value={region}
+          style={{ width: "100%", minHeight: 40 }}
+        >
+          <option value={""}>-- Select Region --</option>
+          {regionList.map((_region) => (
+            <option key={_region.code} value={_region.name}>
+              {_region.name}
+            </option>
+          ))}
+        </select>
+        <h3 style={{ marginTop: 10, marginBottom: 5 }}>Phone Code</h3>
+        <select
+          onChange={(e) => setPhonecode(e.target.value)}
+          value={phonecode}
+          style={{ width: "100%", minHeight: 40 }}
+        >
+          <option value={""}>-- Select Phonecode --</option>
+          {phoncodeList.map((_code) => (
+            <option key={_code.id} value={_code.phone_code}>
+              +{_code.phone_code}
+            </option>
+          ))}
+        </select>
+      </div>
+    </div>
+  );
+}
+
+export default App;
+
+```
+</details>
+<PhonecodesByRegionSample />

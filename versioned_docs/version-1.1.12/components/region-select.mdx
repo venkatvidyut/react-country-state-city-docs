@@ -1,0 +1,59 @@
+---
+title: "Region Select"
+description: "A component to select regions or continents."
+---
+
+import { RegionSelect } from "react-country-state-city";
+
+:::info
+The `RegionSelect` component allows users to select a region or continent from a predefined list.
+:::
+
+## Usage
+
+```tsx
+import React, { useState } from "react";
+import { RegionSelect } from "react-country-state-city";
+import "react-country-state-city/dist/react-country-state-city.css";
+
+export default function App() {
+  const [region, setRegion] = useState(null);
+
+  return (
+    <div>
+      <h6>Region / Continent</h6>
+      <RegionSelect
+        containerClassName="form-group"
+        inputClassName=""
+        onChange={(_region) => setRegion(_region)}
+        onTextChange={(_txt) => console.log(_txt)}
+        defaultValue={region}
+        placeHolder="Select Region"
+      />
+    </div>
+  );
+}
+```
+
+## Live Example
+
+<RegionSelect
+  containerClassName="form-group"
+  inputClassName=""
+  onChange={(region) => console.log(region)}
+  onTextChange={(text) => console.log(text)}
+  placeHolder="Select Region"
+/>
+
+## Props
+
+| Name                 | Type                         | Default     | Required | Description                                                   |
+| -------------------- | ---------------------------- | ----------- | -------- | ------------------------------------------------------------- |
+| **src**                | `string`                     | `""`        | ❌       | The relative or absolute URL where the data files are hosted. |
+| **defaultValue**       | `Region` \| `string(name)` \| `number(id)` | `null`      | ❌       | The current selected `region object` or `region name` or `region id`.                                 |
+| **containerClassName** | `string`                     | `""`        | ❌       | CSS class for the container.                                  |
+| **inputClassName**     | `string`                     | `""`        | ❌       | CSS class for the input box.                                  |
+| **onChange**           | `(region:Region) => void`   | `undefined` | ❌       | Callback triggered when the selected region changes.          |
+| **onTextChange**       | `(text:string) => void`     | `undefined` | ❌       | Callback fired when the input text changes.                   |
+| **placeHolder**       | `string`                     | `""`        | ❌       | Placeholder text displayed in the empty input.                |
+

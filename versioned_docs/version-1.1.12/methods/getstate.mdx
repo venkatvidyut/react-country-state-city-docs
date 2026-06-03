@@ -1,0 +1,118 @@
+---
+title: GetState
+sidebar_label: GetState
+---
+
+#
+
+## GetState (countryid:Number)
+
+:::info
+The `GetState` function in react-country-state-city fetches a list of [**state**](/latest/types/state) objects based on given country id. The async function returns an array of [**state**](/latest/types/state) objects, each containing details such as name and code.
+:::
+
+import Statesample from "./statesample";
+
+### Usage
+
+```tsx
+import React, { useState, useEffect } from "react";
+import { GetCountries, GetState } from "react-country-state-city";
+
+export default function App() {
+  const [country, setCountry] = useState(null);
+  const [currentState, setcurrentState] = useState(null);
+  const [countriesList, setCountriesList] = useState([]);
+  const [stateList, setStateList] = useState([]);
+  useEffect(() => {
+    GetCountries().then((result) => {
+      setCountriesList(result);
+    });
+  }, []);
+  useEffect(() => {
+    if (country)
+      GetState(parseInt(country)).then((result) => {
+        setStateList(result);
+      });
+  }, [country]);
+
+  return <div>...</div>;
+}
+```
+
+### Parameters
+
+| Name          | Type     | Default | Required | Description                                                                                       |
+| ------------- | -------- | ------- | -------- | ------------------------------------------------------------------------------------------------- |
+| **countryid** | `number` | Empty   | ✅       | The id of the selected country object                                                             |
+| **src**       | `string` | Empty   | ❌       | URL where data files are hosted (e.g., `https://venkatvidyut.github.io/react-country-state-city/`) |
+
+### Results
+
+Returns a [**state**](/latest/types/state) object lists.
+
+### Sample
+
+<details>
+  <summary>Show Code</summary>
+```tsx
+import React, { useState, useEffect } from "react";
+import { GetCountries, GetState } from "react-country-state-city";
+export default function App() {
+    const [country, setCountry] = useState(null);
+    const [currentState, setcurrentState] = useState(null);
+    const [countriesList, setCountriesList] = useState([]);
+    const [stateList, setStateList] = useState([]);
+    useEffect(() => {
+        GetCountries().then((result) => {
+            setCountriesList(result);
+        });
+    }, []);
+    useEffect(() => {
+        if (country)
+            GetState(parseInt(country)).then((result) => {
+                setStateList(result);
+            });
+    }, [country]);
+    return (
+        <div
+            style={{
+                border: "1px solid gray",
+                borderRadius: "8px",
+                padding: "16px",
+                marginTop: "16px",
+            }}>
+            <div style={{ maxWidth: "600px", margin: "auto" }}>
+                <h3 style={{ marginTop: 10, marginBottom: 5 }}>Country</h3>
+                <select
+                    onChange={(e) => setCountry(e.target.value)}
+                    value={country}
+                    style={{ width: "100%", minHeight: 40 }}
+                >
+                    <option value={""}>-- Select Country --</option>
+                    {countriesList.map((_country) => (
+                        <option key={_country.id} value={_country.id}>
+                            {_country.name}
+                        </option>
+                    ))}
+                </select>
+                <h3 style={{ marginTop: 10, marginBottom: 5 }}>State</h3>
+                <select
+                    onChange={(e) => setcurrentState(e.target.value)}
+                    value={currentState}
+                    style={{ width: "100%", minHeight: 40 }}
+                >
+                    <option value={""}>-- Select State --</option>
+                    {stateList.map((_state) => (
+                        <option key={_state.id} value={_state.id}>
+                            {_state.name}
+                        </option>
+                    ))}
+                </select>
+            </div>
+        </div>
+    );
+}
+```
+</details>
+<Statesample />
