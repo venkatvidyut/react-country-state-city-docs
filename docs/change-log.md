@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented here.
 
+## [1.1.13] - 2026-06-03
+### No Major Changes
+- Added a missing states and cities to the json and replaced a author name.
+
 ## [1.1.12] - 2025-03-11
 ### Added
 - Added a new feature that allows setting a `defaultValue` for [CountrySelect](/latest/components/country-select) using a name, ID, or [country](/latest/types/country) object.
