@@ -67,7 +67,7 @@ A demo is worth a thousand words! [Check out the demo](https://venkatvidyut.gith
 
 Show your ❤️ and support by giving a ⭐. Any suggestions are welcome!
 
-📧 Email: [venkatvidyut@gmail.com](mailto:venkatvidyut@gmail.com)
+📧 Email: [venkatmcajj@gmail.com](mailto:venkatmcajj@gmail.com)
 
 ---
 
